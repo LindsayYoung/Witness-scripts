@@ -1,0 +1,92 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.1.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.65 (6784) x86_64-apple-darwin13.1.0]
+
+[Workspace restored from /Users/lindsayyoung/.RData]
+[History restored from /Users/lindsayyoung/.Rapp.history]
+
+> library(ggplot)
+Error in library(ggplot) : there is no package called ‘ggplot’
+> library(ggplot2)
+
+Attaching package: ‘ggplot2’
+
+The following objects are masked _by_ ‘.GlobalEnv’:
+
+    scale_colour_discrete, scale_fill_discrete
+
+> # load for future use
+> >library(dplyr)
+Error: unexpected '>' in ">"
+> # load for future use
+> > library(dplyr)
+Error: unexpected '>' in ">"
+> # load for future use
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> witness <- read.csv("~/Dropbox/Projects/other/Congress API scripts/witness_data.csv")
+> table(witness$gender)
+
+       female   male 
+    43    302   1163 
+> table(witness$gender)
+
+       female   male 
+    43    302   1163 
+> summary <- summarise(gender_group, count = length(first_name))
+> summary
+Source: local data frame [3 x 2]
+
+  gender_guess count
+1                 46
+2       female   218
+3         male   782
+> source("~/Downloads/sunlight_R_style.R")
+> comsum <- summarise(committees, count = length(first_name))
+> committees <- group_by(wit, committee_name, gender)
+Error: index out of bounds
+> committees <- group_by(witness, committee_name, gender)
+> 
+> > comsum <- summarise(committees, count = length(first_name))
+Error: unexpected '>' in ">"
+> comsum <- summarise(committees, count = length(first_name))
+> ggplot(comsum, aes(x=committee_name, y=count, fill=gender_guess, group=gender_guess)) + geom_bar(stat="identity")
+Error in eval(expr, envir, enclos) : object 'gender_guess' not found
+> ggplot(comsum, aes(x=committee_name, y=count, fill=gender, group=gender)) + geom_bar(stat="identity")
+> ggplot(comsum, aes(x=committee_name, y=count, fill=gender_guess, group=gender_guess)) + geom_bar(stat="identity", position="dodge") + coord_flip() + ggtitle("Title")
+Error in eval(expr, envir, enclos) : object 'gender_guess' not found
+> ggplot(comsum, aes(x=committee_name, y=count, fill=gender, group=gender)) + geom_bar(stat="identity", position="dodge") + coord_flip() + ggtitle("Title")
+> comsum$committee_name <- reorder(comsum, committee_name, count)
+Error in tapply(X = X, INDEX = x, FUN = FUN, ...) : 
+  object 'count' not found
+> comsum$committee_name <- reorder(comsum$committee_name, comsum$count)
+> ggplot(comsum, aes(x=committee_name, y=count, fill=gender, group=gender)) + geom_bar(stat="identity", position="dodge") + coord_flip() + ggtitle("Title")
+> ggplot(comsum, aes(x=committee_name, y=count, fill=gender, group=gender)) + geom_bar(stat="identity", position="dodge") + coord_flip() + ggtitle("Title") + theme(axis.text.y = element_text( hjust = 1))
+> 
